@@ -1,4 +1,5 @@
 import * as React from 'react';
+import  { useState } from 'react';
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
@@ -12,31 +13,62 @@ import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
+import {  useNavigate } from 'react-router-dom';
 
-function Copyright(props) {
-  return (
-    <Typography variant="body2" color="text.secondary" align="center" {...props}>
-      {'Copyright © '}
-      <Link color="inherit" href="https://mui.com/">
-        Your Website
-      </Link>{' '}
-      {new Date().getFullYear()}
-      {'.'}
-    </Typography>
-  );
-}
+// function Copyright(props) {
+//   return (
+//     <Typography variant="body2" color="text.secondary" align="center" {...props}>
+//       {'Copyright © '}
+//       <Link color="inherit" href="https://mui.com/">
+//         Your Website
+//       </Link>{' '}
+//       {new Date().getFullYear()}
+//       {'.'}
+//     </Typography>
+//   );
+// }
 
-// TODO remove, this demo shouldn't need to reset the theme.
 
 const defaultTheme = createTheme();
 const SignUp = () => {
-    const handleSubmit = (event) => {
+    
+
+      const initialUser = {
+        nom: '',
+        prenom: '',
+        email: '',
+        password: '',
+        role: 'CLIENT',
+      };
+      const [user, setUser] = useState(initialUser);
+      const navigate = useNavigate();
+    
+      const handleChange = (event) => {
+        const { name, value } = event.target;
+        setUser({ ...user, [name]: value });
+      };
+    
+      const handleSubmit = async (event) => {
         event.preventDefault();
-        const data = new FormData(event.currentTarget);
-        console.log({
-          email: data.get('email'),
-          password: data.get('password'),
-        });
+        
+         try {
+           const response = await fetch('http://localhost:8080/client/register', {
+             method: 'POST',
+             headers: {
+               'Content-Type': 'application/json'
+            },
+             body: JSON.stringify(user)
+           });
+    
+           if (response.ok) {
+             setUser(initialUser);
+             navigate('/');
+           } else {
+             console.error('Error:', response.statusText);
+           }
+         } catch (error) {
+           console.error('Error:', error);
+         }
       };
     
       return (
@@ -62,11 +94,13 @@ const SignUp = () => {
                   <Grid item xs={12} sm={6}>
                     <TextField
                       autoComplete="given-name"
-                      name="firstName"
+                      name="nom"
                       required
                       fullWidth
-                      id="firstName"
-                      label="First Name"
+                      id="nom"
+                      label="nom"
+                      value={user.nom}
+                      onChange={handleChange}
                       autoFocus
                     />
                   </Grid>
@@ -74,10 +108,12 @@ const SignUp = () => {
                     <TextField
                       required
                       fullWidth
-                      id="lastName"
-                      label="Last Name"
-                      name="lastName"
+                      id="prenom"
+                      label="prenom"
+                      name="prenom"
                       autoComplete="family-name"
+                      value={user.prenom}
+                      onChange={handleChange}
                     />
                   </Grid>
                   <Grid item xs={12}>
@@ -88,6 +124,8 @@ const SignUp = () => {
                       label="Email Address"
                       name="email"
                       autoComplete="email"
+                      value={user.email}
+                      onChange={handleChange}
                     />
                   </Grid>
                   <Grid item xs={12}>
@@ -98,7 +136,22 @@ const SignUp = () => {
                       label="Password"
                       type="password"
                       id="password"
+                      value={user.password}
+                      onChange={handleChange}
                       autoComplete="new-password"
+                    />
+                  </Grid>
+                  <Grid item xs={12}>
+                    <TextField
+                      required
+                      fullWidth
+                      name="login"
+                      label="login"
+                      type="login"
+                      id="login"
+                      autoComplete="new-login"
+                      value={user.login}
+                      onChange={handleChange}
                     />
                   </Grid>
                   <Grid item xs={12}>
@@ -125,7 +178,7 @@ const SignUp = () => {
                 </Grid>
               </Box>
             </Box>
-            <Copyright sx={{ mt: 5 }} />
+            {/* <Copyright sx={{ mt: 5 }} /> */}
           </Container>
         </ThemeProvider>
       );

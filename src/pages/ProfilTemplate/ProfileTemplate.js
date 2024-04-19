@@ -1,51 +1,110 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import './ProfileTemplate.css';
-import AccountGeneral from "./AccountGeneral";
-import AccountInfo from "./ChangePassword";
-import ChangePassword from "./ChangePassword";
-import Notifications from "./Notification";
-import SocialConnections from "./SocialConnection";
-import SocialLinks from "./SocialLink";
+// import React , {useState} from 'react';
+// import { makeStyles } from '@material-ui/core/styles';
+// import { Typography,Grid,Avatar,Paper } from '@material-ui/core';
+// import MailIcon from '@material-ui/icons/Mail';
+// import { Link } from 'react-router-dom';
+// import PeopleIcon from '@material-ui/icons/People';
+// import PersonIcon from '@material-ui/icons/Person';
+// import SchoolIcon from '@material-ui/icons/School';
+// import HowToVoteIcon from '@material-ui/icons/HowToVote';
+// import SettingsRemoteIcon from '@material-ui/icons/SettingsRemote';
+// import AccountCircleIcon from '@material-ui/icons/AccountCircle';
+// import ChatIcon from '@material-ui/icons/Chat';
+// import LocalDiningIcon from '@material-ui/icons/LocalDining';
+// import PhoneIcon from '@mui/icons-material/Phone';
+// import AddLocationIcon from '@mui/icons-material/AddLocation';
 
-function ProfileTemplate() {
-  return (
-    <div className='body'>
-      <div className="container light-style flex-grow-1 container-p-y">
-        <h4 className="font-weight-bold py-3 mb-4">
-          Account settings
-        </h4>
-        <div className="card overflow-hidden">
-          <div className="row no-gutters row-bordered row-border-light">
-            <div className="col-md-3 pt-0">
-              <div className="list-group list-group-flush account-settings-links">
-                <Link className="list-group-item list-group-item-action active" data-toggle="list" to="/AccountGeneral">General</Link>
-                <Link className="list-group-item list-group-item-action" data-toggle="list" to="/ChangePassword">Change password</Link>
-                <Link className="list-group-item list-group-item-action" data-toggle="list" to="/AccountInfo">Info</Link>
-                <Link className="list-group-item list-group-item-action" data-toggle="list" to="/SocialLinks">Social links</Link>
-                <Link className="list-group-item list-group-item-action" data-toggle="list" to="/SocialConnections">Connections</Link>
-                <Link className="list-group-item list-group-item-action" data-toggle="list" to="/Notifications">Notifications</Link>
-              </div>
-            </div>
-            <div className="col-md-9">
-              <div className="tab-content">
-                <AccountGeneral/>
-                <ChangePassword/>
-                <AccountInfo/>
-                <SocialLinks/>
-                <SocialConnections/>
-                <Notifications/>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div className="text-right mt-3">
-          <button type="button" className="btn btn-primary">Save changes</button>&nbsp;
-          <button type="button" className="btn btn-default">Cancel</button>
-        </div>
-      </div>
-    </div>
-  );
-}
 
-export default ProfileTemplate;
+
+
+
+// const useStyles = makeStyles({
+//     main: {
+//      width:'100%',
+//      backgroundColor:'white',
+//      height:'auto',
+//      borderRadius:'10px',
+//      marginTop:'40px',
+    
+     
+//     },
+//     bloc1: {
+//       width:'100%',
+//       backgroundColor:'green',
+//       height:'100px',
+//       borderRadius:'10px 10px 0px 0px',
+//      },
+//      img: {
+//       width:'100px',
+//       height:'100px',
+//       border:'5px solid white',
+//       borderRadius:'100%',
+//      },
+//      spanimage: {
+//         padding:'-150px 0px 0px 0px',
+//         marginTop:'-50px',
+//         textAlign:'left'
+//      },
+//      root: {
+//       width:'100%',
+//        display:'flex',
+//        justifyContent:'space-evenly',
+//    },
+//    contact: {
+//       marginTop:'70px',
+//    },
+//    name: {
+//       fontWeight:'bold',
+//       fontSize:'30px'
+//    },
+  
+//   });
+
+// export default function Main(){
+  
+   
+
+//     const classes = useStyles();
+
+//     return(
+//     <Grid > 
+//       <Grid container  className={classes.main}>
+//          <div className={classes.bloc1}> </div> 
+
+//          <div className={classes.root}>
+//              <div className={classes.spanimage}>
+//                  <span style={{padding:'0px 0px 0px 30px'}}>
+//                      <img className={classes.img} src=""/>
+//                   </span>
+//                  <p className={classes.name}>Nabila azela</p>
+//                  <p style={{color:'green',fontWeight:'bold'}}>Admin</p>
+//                <span style={{display:'flex'}}>
+//                    <AddLocationIcon style={{color:'green'}}/> 
+//                     <p>Douala , Cameroun</p>
+//                  </span>
+          
+//              </div>
+
+//                <div className={classes.contact}>
+//                   <p>Phone</p>
+//                   <span style={{fontWeight:'bold',display:'flex'}}>
+//                      <Avatar style={{ backgroundColor:'green'}} >  < PhoneIcon/></Avatar>
+//                      <p style={{padding:'10px 0px 0px 5px'}}>+237 69887855</p>
+//                   </span>
+//                </div>
+
+//                <div className={classes.contact}>
+//                   <p>Email</p>
+//                   <span style={{fontWeight:'bold',display:'flex'}}>
+//                      <Avatar style={{ backgroundColor:'green'}} >  < MailIcon/></Avatar>
+//                      <p style={{padding:'10px 0px 0px 5px'}}>nabilaazeba@gmail.com</p>
+//                   </span>
+//                </div>
+
+//                <div> :</div>
+//          </div>   
+     
+//       </Grid>
+//     </Grid>
+//     )
+// }

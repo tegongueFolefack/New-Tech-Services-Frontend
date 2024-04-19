@@ -25,12 +25,7 @@ import Shop from "./pages/Shop/Shop";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import ProfileTemplate from "./pages/ProfilTemplate/ProfileTemplate";
-import AccountGeneral from "./pages/ProfilTemplate/AccountGeneral";
-import AccountInfo from "./pages/ProfilTemplate/AccountInfo";
-import ChangePassword from "./pages/ProfilTemplate/ChangePassword";
-import Notifications from "./pages/ProfilTemplate/Notification";
-import SocialConnections from "./pages/ProfilTemplate/SocialConnection";
-import SocialLinks from "./pages/ProfilTemplate/SocialLink";
+
 
   
 
@@ -79,13 +74,8 @@ const router = createBrowserRouter(
       <Route path="/signup" element={<SignUp />}></Route> 
       <Route path="/signin" element={<SignIn />}></Route>
 
-      <Route path="/profil" element={<ProfileTemplate />}></Route>
-      <Route path="/AccountGeneral" element={<AccountGeneral />}></Route>
-      <Route path="/AccountInfo" element={<AccountInfo />}></Route>
-      <Route path="/ChangePassword" element={<ChangePassword />}></Route>
-      <Route path="/Notifications" element={<Notifications />}></Route>
-      <Route path="/SocialConnections" element={<SocialConnections />}></Route>
-      <Route path="/SocialLinks" element={<SocialLinks />}></Route>
+      {/* <Route path="/profil" element={<ProfileTemplate />}></Route> */}
+     
      
     </Route>
   )
